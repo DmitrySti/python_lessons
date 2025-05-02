@@ -725,9 +725,26 @@ print('')
 
     # №5 Дан список с дробями. Округлите эти дроби до одного знака в дробной части.
 print(' Задача №2.2.5')
-print('Список дробей: ', *float_numbers_list, sep = '\n')
+print('Список дробей: ', *float_numbers_list, '', sep = '\n')
 def rounding():
     float_numbers_list_copy = float_numbers_list.copy()
     rounded_list = [round(i, 1) for i in float_numbers_list_copy]
-    print('Список округленных дробей: ', *rounded_list, sep = '\n')
+    print('Список округленных дробей: ', *rounded_list, '', sep = '\n')
 rounding()
+
+
+
+    # №6 Дан словарь. Получите список его значений: [1, 2, 3, 4]
+print(' Задача №2.2.6')
+def dict_to_list():
+    digits_dict_list = [value for value in digits_dict.values()]
+    print(f'Словарь : {digits_dict}')
+    print(f'Список значений из словаря : {digits_dict_list}')
+dict_to_list()
+
+
+
+# УРОВЕНЬ 2.3
+
+
+    # №1 
