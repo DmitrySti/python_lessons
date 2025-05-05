@@ -23,6 +23,7 @@ strings = [
     "about.html",
     "services.html"
 ]
+numbers_string = '12, 34, 56'
 last_char_of_string = string[-1] # [-1] первый символ с конца строки, [0] - первый символ с начала строки
 word1 = "Лето"
 word2 = "Соска"
@@ -34,7 +35,8 @@ numbers_list = [47, -83, 12, 91, -5, -42, 76, 33, -19, 88, -61, 0, 54, -27, 3]
 digits_range1 = range(1, 101)
 digits_range2 = range(-100, 1) 
 digits_range3 = range(101, 0, -1)
-digits_range4 = range(0, 101, 2)                               
+digits_range4 = range(0, 101, 2)    
+date = '2025-12-31'                           
 date_dict = {'year' : '2025','month': '12','day'  : '31', } # словарь
 digits_dict ={'a': 1, 'b': 2, 'c': 3, 'd': 4, }
 digits_tuple = (1, 2, 3, 4, 5, 6) # кортеж
@@ -648,9 +650,9 @@ print('')
 print(' Задача №2.1.4')
 x = range(10, 1001)
 for i in x:
-    sum = int(str(i)[0]) + int(str(i)[1])
-    if sum == 5:
-        print(f'Сумма первых двух цифр числа {i} = {sum}')
+    sum_c = int(str(i)[0]) + int(str(i)[1])
+    if sum_c == 5:
+        print(f'Сумма первых двух цифр числа {i} = {sum_c}')
 print('')
 
 
@@ -747,4 +749,96 @@ dict_to_list()
 # УРОВЕНЬ 2.3
 
 
-    # №1 
+    # №1 Даны два слова. Проверьте, что последняя буква первого слова совпадает с первой буквой второго слова.
+print(' УРОВЕНЬ 2.3')
+print(' Задача №2.3.1')
+def words_eq():
+    eq = True if word1[0] == word2[0] else False
+    print(f'Первые буквы в словах {word1} и {word2} совпадают!') if eq == True else print(f'Первые буквы в словах {word1} и {word2} НЕ совпадают!')
+words_eq()
+print()
+
+
+
+    # №2 Дана некоторая строка. Найдите позицию третьего буквы 'c' в строке.
+print(' Задача №2.3.2')
+def simbol_find(text, simbol):                                      # создаем функцию с 2мя переменными: строкой и искомым символом
+    first_simbol = text.find(simbol)                                # ищем первое вхождения символа в строку
+    if first_simbol == -1:                                          # если найдено первый раз - возвращает -1
+        return -1
+    second_simbol = text.find(simbol, first_simbol + 1)             # ищем второе вхождения символа в строку (индекс первого вхождения +1)
+    if second_simbol == -1:                                         # если найдено второй раз - возвращает -1
+        return -1
+    third_simbol = text.find(simbol, second_simbol + 1)             # ищем третье вхождения символа в строку (индекс второго вхождения +1)
+    return third_simbol                                             # если найдено третий раз - возвращает уже искомый индекс
+print(f'Третья буква "с" в строке: "{string}" попадается на : {simbol_find(string, "с")} позиции!\n')
+
+
+
+    # №3 Даны числа, разделенные запятыми: '12,34,56'. Найдите сумму этих чисел.
+print(' Задача №2.3.3')
+def summing_numbers_in_string():
+    numbers = sum( [int(x) for x in numbers_string.split(',')] ) #list comprehencion с разделением элементов по ',' и переводом их в число
+    print(f'Сумма чисел в строке {numbers_string} = {numbers}')
+summing_numbers_in_string()
+print('')
+
+
+
+    # №4 Дана дата в следующем формате:
+
+        # '2025-12-31'
+        # Преобразуйте эту дату в следующий словарь:
+
+        # {
+        #     'year' : '2025',
+        #     'month': '12',
+        #     'day'  : '31',
+        # }
+
+print(' Задача №2.3.4')
+def date_to_dict():
+    year, month, day = date.split('-')  # разделяю строку на переменные по порядку через '-'
+    date_to_dict = {
+        'year' : year,
+        'month' : month,
+        'day' : day 
+    }     
+    print(date_to_dict, '\n')
+date_to_dict()
+
+
+
+    # №5 Дан словарь. Получите сет его значений.
+print(' Задача №2.3.5')
+def dict_set():
+    dict_set = set(digits_dict.values())
+    print(dict_set, '\n')
+dict_set()
+
+
+
+    # УРОВЕНЬ 2.4
+    # №1 Дана некоторая строка с буквами и цифрами. Получите позицию первой цифры в этой строке.
+print(' УРОВЕНЬ 2.4')
+print(' Задача №2.4.1')
+def first_digit_of_str():
+    s = 'x1a2b3c4d'
+    for i, d in enumerate(s): # enumerate()  создает список пар из символов строки s - (0, x), (1, 1), (2,a), (3,2), (4, b) и т.д
+        if d.isdigit():
+            print(f'Позиция первой цифры в строке: "{s}" - {i}')
+            break
+first_digit_of_str()
+
+
+
+    # №2 Дано число. Выведите в консоль количество четных цифр в этом числе.
+print(' Задача №2.4.2')
+def count_even_digits():
+    count = 0
+    number_list = [int(k) for k in str(number)]
+    for i in number_list:
+        if i % 2 == 0:
+            count += 1
+    print(number, count) 
+count_even_digits()
