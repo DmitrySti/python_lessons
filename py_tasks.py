@@ -811,10 +811,10 @@ date_to_dict()
 
     # №5 Дан словарь. Получите сет его значений.
 print(' Задача №2.3.5')
-def dict_set():
-    dict_set = set(digits_dict.values())
-    print(dict_set, '\n')
-dict_set()
+def dict_values_set():
+    dict_values_set = set(digits_dict.values())
+    print(dict_values_set, '\n')
+dict_values_set()
 
 
 
@@ -842,3 +842,40 @@ def count_even_digits():
             count += 1
     print(number, count) 
 count_even_digits()
+
+
+
+    # №3 Дан словарь:
+    # {
+    # 	'a': 1,
+    # 	'b': 2,
+    # 	'c': 3, 
+    # 	'd': 4,
+    # }
+    # Получите список его ключей:
+    # ['a', 'b', 'c', 'd']
+print(' Задача №2.4.3')
+def dict_keys_set():
+    dict_keys_set = list(digits_dict.keys())
+    print(dict_keys_set)
+dict_keys_set()
+
+
+
+    # №4 Дана некоторая строка.Переведите в верхний регистр все нечетные буквы этой строки.
+print(' Задача №2.4.4')
+def upper_odd_chars():
+    new_string = ('')
+    for i in string:
+        if i == ' ':
+            continue
+        if string.index(i) % 2 == 0:
+            new_string += i.lower()
+            print(string.index(i))
+            print(new_string)
+        else:
+            new_string += i.upper()
+            print(string.index(i))
+            print(new_string)
+    print(new_string)
+upper_odd_chars() 
