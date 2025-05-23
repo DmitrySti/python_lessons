@@ -826,7 +826,7 @@ def first_digit_of_str():
     s = 'x1a2b3c4d'
     for i, d in enumerate(s): # enumerate()  создает список пар из символов строки s - (0, x), (1, 1), (2,a), (3,2), (4, b) и т.д
         if d.isdigit():
-            print(f'Позиция первой цифры в строке: "{s}" - {i}')
+            print(f'Позиция первой цифры в строке: "{s}" - {i}', '\n')
             break
 first_digit_of_str()
 
@@ -840,7 +840,7 @@ def count_even_digits():
     for i in number_list:
         if i % 2 == 0:
             count += 1
-    print(number, count) 
+    print(number, count, '\n') 
 count_even_digits()
 
 
@@ -857,7 +857,7 @@ count_even_digits()
 print(' Задача №2.4.3')
 def dict_keys_set():
     dict_keys_set = list(digits_dict.keys())
-    print(dict_keys_set)
+    print(dict_keys_set, '\n')
 dict_keys_set()
 
 
@@ -865,17 +865,54 @@ dict_keys_set()
     # №4 Дана некоторая строка.Переведите в верхний регистр все нечетные буквы этой строки.
 print(' Задача №2.4.4')
 def upper_odd_chars():
-    new_string = ('')
-    for i in string:
-        if i == ' ':
-            continue
-        if string.index(i) % 2 == 0:
-            new_string += i.lower()
-            print(string.index(i))
-            print(new_string)
-        else:
-            new_string += i.upper()
-            print(string.index(i))
-            print(new_string)
-    print(new_string)
+    print(string)
+    new_string = ''.join(char.upper() if i % 2 == 0 else char.lower() for i, char in enumerate(string))
+    print(new_string, '\n')
 upper_odd_chars() 
+
+
+
+    # №5 Дана некоторая строка со словами. Сделайте заглавным первый символ каждого слова в этой строке.
+print(' Задача №2.4.5')
+def upper_words_first_symbol():
+    print(string)
+    new_string = string.title()    #делает все слова с залавной буквы, встроенная функция python
+    print(new_string, '\n')
+upper_words_first_symbol()
+
+
+
+    # №6 Дана дата в следующем формате:
+    #   '2025-12-31'
+    #   Преобразуйте эту дату в следующий кортеж:
+    #   ('31', '12', '2025')
+print(' Задача №2.4.6')
+def date_to_tuple():
+    print(date)
+    date_tuple = tuple(date.split('-'))[::-1] 
+    print(date_tuple, '\n')
+date_to_tuple()
+
+
+
+    # УРОВЕНЬ 2.5
+    # №1 Дана некоторая строка, например, вот такая:
+    # '023m0df0dfg0'
+    # Получите сет позиций всех нулей в этой в строке.
+print(' УРОВЕНЬ 2.5')
+print(' Задача №2.5.1')
+def find_zeroes_positions_set():
+    any_string = '023m0df0dfg0'
+    zeroes_positions_set = {i for i, char in enumerate(any_string) if char == '0'}
+    print(zeroes_positions_set, '\n')
+find_zeroes_positions_set()
+
+
+
+    # №2 Дана некоторая строка. Удалите из этой строки каждый третий символ.
+print(' Задача №2.5.2')
+def delete_every_third_simbol():
+    print(string)
+    new_string = ''.join([char for i, char in enumerate(string)  if (i+1) % 3 != 0])
+    print(new_string, '\n')
+delete_every_third_simbol()
