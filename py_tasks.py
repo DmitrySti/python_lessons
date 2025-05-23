@@ -916,3 +916,6 @@ def delete_every_third_simbol():
     new_string = ''.join([char for i, char in enumerate(string)  if (i+1) % 3 != 0])
     print(new_string, '\n')
 delete_every_third_simbol()
+
+#1233
+print('test')
